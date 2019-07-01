@@ -1,0 +1,44 @@
+@import '~normalize.css/normalize.css';
+
+@import './semantic/semantic.less';
+
+@import '~paper-css/paper.css';
+
+* {
+  text-size-adjust: none;
+  font-size-adjust: none;
+}
+
+html#print {
+  &,
+  body {
+    height: auto;
+    overflow: auto;
+
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  #root {
+    height: auto;
+
+    & > div {
+      height: auto;
+    }
+  }
+}
+
+#print {
+  .ui.table {
+    border-radius: 0;
+  }
+
+  .ui.table thead th {
+    padding: 0.2em;
+    white-space: normal;
+  }
+
+  .ui.compact.table td {
+    padding: 0.1em 0.2em;
+    white-space: normal;
+  }
+}

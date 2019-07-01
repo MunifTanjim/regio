@@ -1,0 +1,48 @@
+version: '3.5'
+
+networks:
+  internal:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.0.0.0/24
+
+services:
+  nginx:
+    hostname: nginx
+    build:
+      context: ./
+      dockerfile: ./nginx/prod.Dockerfile
+    networks:
+      internal:
+        ipv4_address: 10.0.0.2
+    ports:
+      - 80:80
+    restart: unless-stopped
+
+  backend:
+    hostname: backend
+    build:
+      context: ./backend
+      dockerfile: ./prod.Dockerfile
+    env_file: ./backend/.env
+    networks:
+      internal:
+        ipv4_address: 10.0.0.10
+    restart: unless-stopped
+
+  database:
+    hostname: database
+    build:
+      context: ./database
+      dockerfile: ./prod.Dockerfile
+    env_file: ./database/.env
+    networks:
+      internal:
+        ipv4_address: 10.0.0.20
+    ports:
+      - 5432:5432
+    volumes:
+      - ./docker/postgres/regio:/var/lib/postgresql/data/regio
+    restart: unless-stopped

@@ -1,0 +1,64 @@
+{
+  "name": "regio-frontend",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject",
+    "prebuild": "npm run i18n:compile",
+    "i18n:add": "lingui add-locale",
+    "i18n:extract": "lingui extract",
+    "i18n:compile": "lingui compile"
+  },
+  "dependencies": {
+    "@craco/craco": "^5.0.2",
+    "@lingui/cli": "^2.7.4",
+    "@lingui/core": "^2.7.4",
+    "@lingui/macro": "^2.7.4",
+    "@lingui/react": "^2.7.4",
+    "@muniftanjim/is-mobile-phone-number-bd": "^0.1.1",
+    "@reach/router": "^1.2.1",
+    "craco-less": "^1.7.0",
+    "formik": "^1.5.4",
+    "lodash-es": "^4.17.11",
+    "luxon": "^1.12.1",
+    "md5-o-matic": "^0.1.1",
+    "normalize.css": "^8.0.1",
+    "paper-css": "^0.4.1",
+    "query-string": "^6.2.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.1",
+    "react-redux": "^7.0.2",
+    "react-scripts": "^3.0.0",
+    "react-teleporter": "^1.1.0",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
+    "semantic-ui-less": "^2.4.1",
+    "semantic-ui-react": "^0.86.0",
+    "webpack": "^4.29.6",
+    "yup": "^0.27.0"
+  },
+  "devDependencies": {
+    "@lingui/loader": "^2.7.4",
+    "@types/lodash-es": "^4.17.3",
+    "babel-core": "^7.0.0-bridge.0",
+    "http-proxy-middleware": "^0.19.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not ie <= 11",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "cracoConfig": ".craco.config.js"
+}

@@ -1,0 +1,7 @@
+/*******************************
+         Site Overrides
+*******************************/
+
+.ui.disabled.input.static {
+  opacity: 1;
+}

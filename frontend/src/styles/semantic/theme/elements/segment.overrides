@@ -1,0 +1,7 @@
+/*******************************
+         Site Overrides
+*******************************/
+
+div[role="group"] > .ui.segment:last-child {
+  margin-bottom: 1rem;
+}

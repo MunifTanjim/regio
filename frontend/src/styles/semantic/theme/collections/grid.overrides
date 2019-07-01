@@ -1,0 +1,13 @@
+/*******************************
+         Site Overrides
+*******************************/
+
+.ui.grid > [class*="grow wide"].column,
+.ui.grid .row > [class*="grow wide"].column {
+  flex-grow: 1 !important;
+}
+
+.ui.grid > [class*="auto wide"].column,
+.ui.grid .row > [class*="auto wide"].column {
+  width: auto !important;
+}

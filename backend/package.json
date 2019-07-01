@@ -1,0 +1,40 @@
+{
+  "name": "regio-backend",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@muniftanjim/is-mobile-phone-number-bd": "^0.1.1",
+    "convict": "^4.4.1",
+    "debug": "^4.1.1",
+    "dotenv": "^6.2.0",
+    "express": "~4.16.0",
+    "express-async-handler": "^1.1.4",
+    "express-session": "^1.15.6",
+    "express-validator": "^5.3.1",
+    "lodash": "^4.17.11",
+    "pg": "^7.8.1",
+    "pg-hstore": "^2.3.2",
+    "qs": "^6.6.0",
+    "secure-password": "^3.1.0",
+    "sequelize": "^5.9.0",
+    "uuid": "^3.3.2",
+    "validator": "^10.11.0"
+  },
+  "devDependencies": {
+    "@types/sequelize": "^4.27.38",
+    "eslint": "^5.12.0",
+    "eslint-config-prettier": "^3.4.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "nodemon": "^1.18.10",
+    "prettier": "1.15.3",
+    "sequelize-cli": "^5.5.0"
+  }
+}

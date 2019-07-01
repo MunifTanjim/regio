@@ -1,0 +1,7 @@
+# Others
+.git
+docker
+**/node_modules
+frontend/build
+frontend/src/i18n/locales/_build
+frontend/src/i18n/locales/**/*.js

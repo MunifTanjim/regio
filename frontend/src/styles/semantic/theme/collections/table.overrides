@@ -1,0 +1,11 @@
+/*******************************
+         Site Overrides
+*******************************/
+
+.ui.table tr.disabled.static td,
+.ui.table tr td.disabled.static,
+.ui.table tr.disabled.static:hover,
+.ui.table tr:hover td.disabled.static {
+  color: inherit;
+  background: #f9fafb;
+}

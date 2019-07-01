@@ -1,0 +1,35 @@
+const router = require('express').Router()
+
+const authRouter = require('./auth.js')
+const batchesRouter = require('./batches.js')
+const countriesRouter = require('./countries.js')
+const coursesRouter = require('./courses.js')
+const kvRouter = require('./kv.js')
+const routinesRouter = require('./routines.js')
+const sessionyearsRouter = require('./sessionyears.js')
+const studentsRouter = require('./students.js')
+const teachersRouter = require('./teachers.js')
+const termsRouter = require('./terms.js')
+const userRouter = require('./user.js')
+const usersRouter = require('./users.js')
+const weekPlansRouter = require('./weekplans.js')
+
+router.use('/auth', authRouter)
+router.use('/batches', batchesRouter)
+router.use('/countries', countriesRouter)
+router.use('/courses', coursesRouter)
+router.use('/kv', kvRouter)
+router.use('/routines', routinesRouter)
+router.use('/sessionyears', sessionyearsRouter)
+router.use('/students', studentsRouter)
+router.use('/teachers', teachersRouter)
+router.use('/terms', termsRouter)
+router.use('/user', userRouter)
+router.use('/users', usersRouter)
+router.use('/weekplans', weekPlansRouter)
+
+router.get('/health', (req, res, next) => {
+  res.sendStatus(200)
+})
+
+module.exports = router

@@ -1,0 +1,11 @@
+/*******************************
+         Site Overrides
+*******************************/
+
+.ui.form .disabled.field.static {
+  opacity: 1;
+}
+
+.ui.form .field.disabled.static > label {
+  opacity: 1;
+}
