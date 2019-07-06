@@ -3,11 +3,12 @@ import Permit from 'components/Permit.js'
 import { get, orderBy, zipObject } from 'lodash-es'
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { connect } from 'react-redux'
-import { Dropdown, Header, Segment } from 'semantic-ui-react'
+import { Dropdown, Header, Segment, Button } from 'semantic-ui-react'
 import { fetchAllBatchesPage } from 'store/actions/batches.js'
 import { fetchAllStudentsPage } from 'store/actions/students.js'
 import formatDropdownOptions from 'utils/format-dropdown-options.js'
 import ListItem from './ListItem.js'
+import { Link } from '@reach/router'
 
 function StudentList({
   batches,
@@ -62,13 +63,21 @@ function StudentList({
         <HeaderGrid
           Left={<Header>Students</Header>}
           Right={
-            <Dropdown
-              selection
-              search
-              value={batch}
-              options={batchOptions}
-              onChange={onBatchChange}
-            />
+            <>
+              <Dropdown
+                selection
+                search
+                value={batch}
+                options={batchOptions}
+                onChange={onBatchChange}
+              />
+              <Permit sysadmin>
+                {' '}
+                <Button as={Link} to={`create`}>
+                  Create
+                </Button>
+              </Permit>
+            </>
           }
         />
       </Segment>
