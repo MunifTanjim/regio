@@ -3,8 +3,8 @@ const router = require('express').Router()
 const list = require('../../handlers/teachers/list.js')
 router.get('/', list.authorizer, list.handler)
 
-// const create = require('../../handlers/teachers/create.js')
-// router.post('/', create.authorizer, create.handler)
+const create = require('../../handlers/teachers/create.js')
+router.post('/', create.authorizer, create.handler)
 
 const setHead = require('../../handlers/teachers/action/set-head.js')
 router.post('/action/set-head', setHead.authorizer, setHead.handler)

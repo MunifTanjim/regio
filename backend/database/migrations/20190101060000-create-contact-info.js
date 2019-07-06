@@ -28,16 +28,13 @@ module.exports = {
         type: Sequelize.ARRAY(Sequelize.STRING)
       },
       email: {
-        type: Sequelize.STRING,
-        unique: true
+        type: Sequelize.STRING
       },
       mobile: {
-        type: Sequelize.STRING,
-        uniue: true
+        type: Sequelize.STRING
       },
       phone: {
-        type: Sequelize.STRING,
-        uniue: true
+        type: Sequelize.STRING
       },
       created: {
         allowNull: false,

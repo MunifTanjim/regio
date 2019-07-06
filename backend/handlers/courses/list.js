@@ -50,7 +50,7 @@ const handler = asyncHandler(async (req, res, next) => {
     attributes: parseFieldsQuery(fields, ['CourseId']),
     limit: length + 1,
     offset: (page - 1) * length,
-    order: parseSortQuery(sort),
+    order: parseSortQuery(sort, '+CourseId,+code'),
     where: parseFilterQuery(filter)
   }
 

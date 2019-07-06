@@ -26,16 +26,13 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.ARRAY(DataTypes.ENUM(validTypes))
       },
       email: {
-        type: DataTypes.STRING,
-        unique: true
+        type: DataTypes.STRING
       },
       mobile: {
-        type: DataTypes.STRING,
-        uniue: true
+        type: DataTypes.STRING
       },
       phone: {
-        type: DataTypes.STRING,
-        uniue: true
+        type: DataTypes.STRING
       }
     },
     { createdAt: 'created', updatedAt: 'updated' }

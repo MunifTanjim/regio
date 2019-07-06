@@ -9,6 +9,9 @@ router.post('/', create.authorizer, create.handler)
 const read = require('../../handlers/courses/read.js')
 router.get('/:CourseId', read.authorizer, read.handler)
 
+const update = require('../../handlers/courses/update.js')
+router.patch('/:CourseId', update.authorizer, update.handler)
+
 const delete_ = require('../../handlers/courses/delete.js')
 router.delete('/:CourseId', delete_.authorizer, delete_.handler)
 

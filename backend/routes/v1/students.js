@@ -3,6 +3,9 @@ const router = require('express').Router()
 const list = require('../../handlers/students/list.js')
 router.get('/', list.authorizer, list.handler)
 
+const create = require('../../handlers/students/create.js')
+router.post('/', create.authorizer, create.handler)
+
 const read = require('../../handlers/students/read.js')
 router.get('/:id', read.authorizer, read.handler)
 
