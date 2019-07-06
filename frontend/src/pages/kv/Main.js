@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Button, Input, Table } from 'semantic-ui-react'
 import { getKV, setKV } from 'utils/kv.js'
 
-const keys = ['departmentTitle']
+const keys = ['departmentTitle', 'appName']
 
 function KVRow({ k }) {
   const [v, setV] = useState('')

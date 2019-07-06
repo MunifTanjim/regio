@@ -1,16 +1,10 @@
-import { Link, Match } from '@reach/router';
-import { zipObject } from 'lodash-es';
-import React from 'react';
-import { Accordion, Header, Icon, Image, Menu } from 'semantic-ui-react';
-import Logo from '../../logo.svg';
-import Permit from '../Permit.js';
-import './MenuItems.css';
-
-
-
-
-
-
+import { Link, Match } from '@reach/router'
+import { zipObject } from 'lodash-es'
+import React from 'react'
+import { Accordion, Header, Icon, Image, Menu } from 'semantic-ui-react'
+import Logo from '../../logo.svg'
+import Permit from '../Permit.js'
+import './MenuItems.css'
 
 const zipPermits = permits => zipObject(permits, permits.map(Boolean))
 
@@ -76,13 +70,13 @@ const ItemFactory = ({ items, ...props }) => (
 
 const Items = ({ items }) => <ItemsFactory items={items} />
 
-function SidebarMenuItems({ items }) {
+function SidebarMenuItems({ items, appName }) {
   return (
     <>
       <Menu.Item as={Link} to="/" className="logo">
         <Header as="h2" textAlign="center">
           <Image size="small" src={Logo} alt="Regio Logo" />
-          <Header.Subheader>Regio</Header.Subheader>
+          <Header.Subheader>{appName}</Header.Subheader>
         </Header>
       </Menu.Item>
 

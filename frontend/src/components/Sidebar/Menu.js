@@ -1,7 +1,6 @@
-import React from 'react'
-
-import { Sidebar, Menu } from 'semantic-ui-react'
-
+import React, { useEffect, useState } from 'react'
+import { Menu, Sidebar } from 'semantic-ui-react'
+import { getKV } from 'utils/kv.js'
 import MenuItems from './MenuItems.js'
 
 const items = [
@@ -53,6 +52,12 @@ const items = [
 ]
 
 function SidebarMenu({ sidebarVisible }) {
+  const [appName, setAppName] = useState('Regio')
+
+  useEffect(() => {
+    getKV('appName').then(kv => setAppName(appName => kv.value || appName))
+  }, [])
+
   return (
     <Sidebar
       vertical
@@ -60,7 +65,7 @@ function SidebarMenu({ sidebarVisible }) {
       animation="push"
       as={Menu}
       visible={sidebarVisible}
-      content={<MenuItems items={items} />}
+      content={<MenuItems items={items} appName={appName} />}
       className="regio"
     />
   )
