@@ -35,22 +35,18 @@ export const purgeStudentsPagination = () => ({
 })
 
 export const createStudent = studentData => async dispatch => {
-  try {
-    const { data, error } = await api('/students', {
-      method: 'POST',
-      body: studentData
-    })
+  const { data, error } = await api('/students', {
+    method: 'POST',
+    body: studentData
+  })
 
-    if (error) throw error
+  if (error) throw error
 
-    if (data) {
-      dispatch(addStudent(data))
-      dispatch(purgeStudentsPagination())
+  if (data) {
+    dispatch(addStudent(data))
+    dispatch(purgeStudentsPagination())
 
-      return data
-    }
-  } catch (err) {
-    throw err
+    return data
   }
 }
 

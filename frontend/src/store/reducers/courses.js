@@ -1,10 +1,17 @@
-import { keyBy, map, pickBy, union } from 'lodash-es';
-import { combineReducers } from 'redux';
-import { COURSES_ADD_BULK_FOR_TEACHER_TERM, COURSES_ADD_PAGE, COURSES_PURGE_PAGINATION, COURSES_REMOVE_PAGE, COURSES_REQUEST_PAGE, COURSE_ADD, COURSE_ADD_BULK, COURSE_REMOVE, COURSE_UPDATE } from '../actions/actionTypes.js';
-import getPaginationReducer from './helpers/get-pagination-reducer.js';
-
-
-
+import { keyBy, map, pickBy, union } from 'lodash-es'
+import { combineReducers } from 'redux'
+import {
+  COURSES_ADD_BULK_FOR_TEACHER_TERM,
+  COURSES_ADD_PAGE,
+  COURSES_PURGE_PAGINATION,
+  COURSES_REMOVE_PAGE,
+  COURSES_REQUEST_PAGE,
+  COURSE_ADD,
+  COURSE_ADD_BULK,
+  COURSE_REMOVE,
+  COURSE_UPDATE
+} from '../actions/actionTypes.js'
+import getPaginationReducer from './helpers/get-pagination-reducer.js'
 
 const itemsReducer = (state = { byId: {}, allIds: [] }, { type, data, id }) => {
   switch (type) {
@@ -32,8 +39,8 @@ const itemsReducer = (state = { byId: {}, allIds: [] }, { type, data, id }) => {
     case COURSE_REMOVE:
       return {
         ...state,
-        byId: pickBy(state.byId, i => i !== id),
-        allIds: state.allIds.filter(i => i !== id)
+        byId: pickBy(state.byId, item => item.id !== id),
+        allIds: state.allIds.filter(_id => _id !== id)
       }
     case COURSE_UPDATE:
       return {

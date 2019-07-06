@@ -31,22 +31,18 @@ export const purgeTeachersPagination = () => ({
 })
 
 export const createTeacher = teacherData => async dispatch => {
-  try {
-    const { data, error } = await api('/teachers', {
-      method: 'POST',
-      body: teacherData
-    })
+  const { data, error } = await api('/teachers', {
+    method: 'POST',
+    body: teacherData
+  })
 
-    if (error) throw error
+  if (error) throw error
 
-    if (data) {
-      dispatch(addTeacher(data))
-      dispatch(purgeTeachersPagination())
+  if (data) {
+    dispatch(addTeacher(data))
+    dispatch(purgeTeachersPagination())
 
-      return data
-    }
-  } catch (err) {
-    throw err
+    return data
   }
 }
 

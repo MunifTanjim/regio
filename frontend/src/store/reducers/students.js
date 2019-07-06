@@ -41,8 +41,8 @@ const itemsReducer = (
     case STUDENT_REMOVE:
       return {
         ...state,
-        byId: pickBy(state.byId, i => i !== id),
-        allIds: state.allIds.filter(i => i !== id)
+        byId: pickBy(state.byId, item => item.id !== id),
+        allIds: state.allIds.filter(_id => _id !== id)
       }
     case STUDENT_UPDATE:
       return {

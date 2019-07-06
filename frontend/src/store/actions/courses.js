@@ -8,7 +8,8 @@ import {
   COURSES_REMOVE_PAGE,
   COURSES_REQUEST_PAGE,
   COURSES_PURGE_PAGINATION,
-  TERMCOURSES_SET_BY_COURSEID
+  TERMCOURSES_SET_BY_COURSEID,
+  COURSE_UPDATE
 } from './actionTypes.js'
 
 export const addCourse = data => ({
@@ -43,6 +44,19 @@ export const createCourse = courseData => async dispatch => {
   } catch (err) {
     throw err
   }
+}
+
+export const updateCourse = (CourseId, courseData) => async dispatch => {
+  const { data, error } = await api(`/courses/${CourseId}`, {
+    method: 'PATCH',
+    body: courseData
+  })
+
+  if (error) throw error
+
+  dispatch({ type: COURSE_UPDATE, data })
+
+  return data
 }
 
 export const getCourse = id => async dispatch => {

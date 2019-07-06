@@ -1,10 +1,16 @@
-import { keyBy, map, pickBy, union } from 'lodash-es';
-import { combineReducers } from 'redux';
-import { SESSIONYEARS_ADD_PAGE, SESSIONYEARS_PURGE_PAGINATION, SESSIONYEARS_REMOVE_PAGE, SESSIONYEARS_REQUEST_PAGE, SESSIONYEAR_ADD, SESSIONYEAR_ADD_BULK, SESSIONYEAR_REMOVE, SESSIONYEAR_UPDATE } from '../actions/actionTypes.js';
-import getPaginationReducer from './helpers/get-pagination-reducer.js';
-
-
-
+import { keyBy, map, pickBy, union } from 'lodash-es'
+import { combineReducers } from 'redux'
+import {
+  SESSIONYEARS_ADD_PAGE,
+  SESSIONYEARS_PURGE_PAGINATION,
+  SESSIONYEARS_REMOVE_PAGE,
+  SESSIONYEARS_REQUEST_PAGE,
+  SESSIONYEAR_ADD,
+  SESSIONYEAR_ADD_BULK,
+  SESSIONYEAR_REMOVE,
+  SESSIONYEAR_UPDATE
+} from '../actions/actionTypes.js'
+import getPaginationReducer from './helpers/get-pagination-reducer.js'
 
 const itemsReducer = (
   state = { byId: {}, allIds: [], totalItems: 0 },
@@ -34,8 +40,8 @@ const itemsReducer = (
     case SESSIONYEAR_REMOVE:
       return {
         ...state,
-        byId: pickBy(state.byId, i => i !== id),
-        allIds: state.allIds.filter(i => i !== id)
+        byId: pickBy(state.byId, item => item.id !== id),
+        allIds: state.allIds.filter(_id => _id !== id)
       }
     case SESSIONYEAR_UPDATE:
       return {

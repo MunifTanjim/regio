@@ -1,10 +1,18 @@
-import { get, groupBy, keyBy, map, mapValues, pickBy, union } from 'lodash-es';
-import { combineReducers } from 'redux';
-import { TERMS_ADD_PAGE, TERMS_PURGE_PAGINATION, TERMS_REMOVE_PAGE, TERMS_REQUEST_PAGE, TERM_ADD, TERM_ADD_BULK, TERM_ADD_BULK_BY_TEACHERID, TERM_REMOVE, TERM_SECTIONS_SET, TERM_UPDATE } from '../actions/actionTypes.js';
-import getPaginationReducer from './helpers/get-pagination-reducer.js';
-
-
-
+import { get, groupBy, keyBy, map, mapValues, pickBy, union } from 'lodash-es'
+import { combineReducers } from 'redux'
+import {
+  TERMS_ADD_PAGE,
+  TERMS_PURGE_PAGINATION,
+  TERMS_REMOVE_PAGE,
+  TERMS_REQUEST_PAGE,
+  TERM_ADD,
+  TERM_ADD_BULK,
+  TERM_ADD_BULK_BY_TEACHERID,
+  TERM_REMOVE,
+  TERM_SECTIONS_SET,
+  TERM_UPDATE
+} from '../actions/actionTypes.js'
+import getPaginationReducer from './helpers/get-pagination-reducer.js'
 
 const itemsReducer = (
   state = { byId: {}, allIds: [], idsBySessionYear: {} },
@@ -58,7 +66,7 @@ const itemsReducer = (
 
       return {
         ...state,
-        byId: pickBy(state.byId, i => i !== data.params.TermId),
+        byId: pickBy(state.byId, item => item.id !== data.params.TermId),
         allIds: state.allIds.filter(i => i !== data.params.TermId),
         idsBySessionYear: {
           ...state.idsBySessionYear,
@@ -104,7 +112,7 @@ const markedIdsReducer = (state = {}, { type, data }) => {
       }
     case TERM_REMOVE:
       return {
-        ...pickBy(state, id => id !== data.id)
+        ...pickBy(state, item => item.id !== data.id)
       }
     default:
       return state

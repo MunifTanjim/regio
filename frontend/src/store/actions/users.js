@@ -13,7 +13,7 @@ const UserIdPatterns = {
   staff: /^S\d+$/
 }
 
-const getEntityIdFromUserId = UserId => UserId.replace(/\D+/g, '')
+const getEntityIdFromUserId = UserId => Number(UserId.replace(/\D+/g, ''))
 const detectEntityFromUserId = UserId => {
   for (const [modelName, pattern] of Object.entries(UserIdPatterns)) {
     if (pattern.test(UserId)) return modelName

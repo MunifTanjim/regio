@@ -1,10 +1,16 @@
-import { map, pickBy, uniq } from 'lodash-es';
-import { combineReducers } from 'redux';
-import { BATCHES_ADD_PAGE, BATCHES_PURGE_PAGINATION, BATCHES_REMOVE_PAGE, BATCHES_REQUEST_PAGE, BATCH_ADD, BATCH_ADD_BULK, BATCH_REMOVE, BATCH_UPDATE } from '../actions/actionTypes.js';
-import getPaginationReducer from './helpers/get-pagination-reducer.js';
-
-
-
+import { map, pickBy, uniq } from 'lodash-es'
+import { combineReducers } from 'redux'
+import {
+  BATCHES_ADD_PAGE,
+  BATCHES_PURGE_PAGINATION,
+  BATCHES_REMOVE_PAGE,
+  BATCHES_REQUEST_PAGE,
+  BATCH_ADD,
+  BATCH_ADD_BULK,
+  BATCH_REMOVE,
+  BATCH_UPDATE
+} from '../actions/actionTypes.js'
+import getPaginationReducer from './helpers/get-pagination-reducer.js'
 
 const itemsReducer = (
   state = { byId: {}, allIds: [], totalItems: 0 },
@@ -37,8 +43,8 @@ const itemsReducer = (
     case BATCH_REMOVE:
       return {
         ...state,
-        byId: pickBy(state.byId, i => i !== id),
-        allIds: state.allIds.filter(i => i !== id)
+        byId: pickBy(state.byId, item => item.id !== id),
+        allIds: state.allIds.filter(_id => _id !== id)
       }
     case BATCH_UPDATE:
       return {
