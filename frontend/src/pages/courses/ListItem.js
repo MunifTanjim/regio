@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { Dimmer, Grid, Header, Label, Loader, Segment } from 'semantic-ui-react'
 import { getCourse } from '../../store/actions/courses.js'
 import Delete from './ActionModals/Delete.js'
+import Edit from './ActionModals/Edit.js'
 
 function ListItem({ data, id, getCourse }) {
   useEffect(() => {
@@ -27,6 +28,7 @@ function ListItem({ data, id, getCourse }) {
           </Grid.Column>
           <Grid.Column className="auto wide">
             <Delete data={data} />
+            <Edit CourseId={id} />
           </Grid.Column>
         </Grid>
       ) : (
@@ -38,8 +40,8 @@ function ListItem({ data, id, getCourse }) {
   )
 }
 
-const mapStateToProps = ({ courses }, ownProps) => ({
-  data: courses.items.byId[ownProps.id]
+const mapStateToProps = ({ courses }, { id }) => ({
+  data: get(courses.items.byId, id)
 })
 
 const mapDispatchToProps = {
