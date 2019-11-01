@@ -19,7 +19,7 @@
     "pg-hstore": "^2.3.2",
     "qs": "^6.6.0",
     "secure-password": "^3.1.0",
-    "sequelize": "^5.9.0",
+    "sequelize": "^5.15.1",
     "uuid": "^3.3.2",
     "validator": "^10.11.0"
   },
