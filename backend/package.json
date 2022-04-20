@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@muniftanjim/is-mobile-phone-number-bd": "^0.1.1",
-    "convict": "^4.4.1",
+    "convict": "^6.2.2",
     "debug": "^4.1.1",
     "dotenv": "^6.2.0",
     "express": "~4.16.0",
